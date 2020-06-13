@@ -4,8 +4,7 @@
 LayUI的自动表单
 
 #### 软件架构
-软件架构说明
-
+基于LayUI模块化组件
 
 #### 安装教程
 
@@ -84,15 +83,9 @@ layui.use('autoform', function () {
 
 });
 ```
-
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
+#### 效果图
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0613/175444_fd4b06c1_727020.png "效果图1")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0613/175458_40221942_727020.png "效果图2")
 
 #### 码云特技
 

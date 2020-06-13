@@ -1,0 +1,148 @@
+﻿<script id="autoFormTemplate" type="text/html">
+    <form class="layui-form" id="{{d.form.id}}" lay-filter="{{d.form.filter}}" onsubmit="return false;">
+        {{# $.each(d.fields, function(i,item){ }}
+        {{#  if(item.type=="hide"){ }}
+        <input type="text" class="layui-hide" name="{{ item.field }}" value="" />
+        {{#  } else if(item.type=="hr"){ }}
+        <fieldset class="layui-elem-field layui-field-title" style="{{ item.style?item.style:''}}"><legend>{{ item.title }}</legend></fieldset>
+        {{#  } else if(item.type=="text"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <input type="text" name="{{ item.field }}" placeholder="请输入{{ item.title }}{{item.readonly==true?'(不可编辑)':''}}" autocomplete="off"
+                    {{# if(item.verify){ }}
+                    lay-verify="{{item.verify!=true?item.verify:'required'}}"
+                    {{# } }} class="layui-input layui-input-sm" {{item.readonly==true?'readonly':''}}
+                    {{ item.filter?'lay-filter='+item.filter:'' }}>
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="password"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <input type="password" name="{{ item.field }}" placeholder="请输入{{ item.title }}" autocomplete="off"
+                       {{# if(item.verify){ }}
+                       lay-verify="{{item.verify!=true?item.verify:'required'}}"
+                       {{# } }} class="layui-input layui-input-sm" {{item.readonly==true?'readonly':''}}>
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="radio"){ }}
+        <div class="layui-form-item" pane>
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                {{# var i=0; }}
+                {{# $.each(item.option, function(j,op){ i+=1; }}
+                <input type="radio" name="{{ item.field }}" value="{{ op }}" title="{{ j }}" {{ i==1?'checked="checked"':'' }} {{item.readonly==true?'readonly':''}} />
+                {{# }); }}
+            </div>
+            {{#  if(item.comment){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.comment}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="checkbox"){ }}
+        <div class="layui-form-item" pane>
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                {{# $.each(item.option, function(j,op){ }}
+                <input type="checkbox" name="{{ item.field }}" value="{{ op }}" title="{{ j }}" {{ item.readonly==true?'readonly':''}} lay-skin="{{ item.skin?item.skin:''}}" />
+                {{# }); }}
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="laydate"||item.type=="laytime"||item.type=="laydatetime"||item.type=="layyear"||item.type=="laymonth"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <input type="text" name="{{ item.field }}" placeholder="请输入{{ item.title }}" autocomplete="off"
+                       {{# if(item.verify){ }}
+                       lay-verify="{{item.verify!=true?item.verify:'required'}}"
+                       {{# } }} class="layui-input layui-input-sm {{item.type}}"
+                       {{item.range==true?'range':''}}
+                       {{item.readonly==true?'readonly':''}}>
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="switch"){ }}
+        <div class="layui-form-item" pane>
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <input type="checkbox" lay-skin="switch" name="{{ item.field }}" lay-text="{{ item.text }}" {{item.checked?'checked':''}}
+                       {{ item.verify?'lay-verify="required"':'' }}
+                       {{ item.readonly==true?'readonly':''}} />
+            </div>
+            {{#  if(item.comment){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.comment}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="select"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <select name="{{ item.field }}" {{ item.verify?'lay-verify="required"':'' }} {{item.readonly==true?'readonly':''}} lay-search>
+                    {{# $.each(item.option, function(j,op){ }}
+                    {{# if(j==""){ }}
+                    <option value="{{op}}">请选择{{item.title}}</option>
+                    {{# }else{ }}
+                    <option value="{{op}}">{{j}}</option>
+                    {{# } }}
+                    {{# }); }}
+                </select>
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } else if(item.type=="html"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                {{ item.html }}
+            </div>
+        </div>
+        {{#  } else if(item.type=="tpl"){ }}
+        <div class="layui-form-item">
+            {{# if(item.title){ }}
+            <fieldset class="layui-elem-field layui-field-title" style="{{ item.style?item.style:''}}"><legend>{{ item.title }}</legend></fieldset>
+            {{# } }}
+            {{ item.content }}
+        </div>
+        {{#  } else if(item.type=="textarea"){ }}
+        <div class="layui-form-item">
+            <label for="{{ item.field }}" class="layui-form-label autoform-label">{{ item.title }}</label>
+            <div class="layui-input-inline autoform-input">
+                <textarea name="{{ item.field }}" placeholder="请输入{{ item.title }}" class="layui-textarea autoform-input"
+                          {{# if(item.verify){ }}
+                          lay-verify="{{item.verify!=true?item.verify:'required'}}"
+                          {{# } }} {{item.readonly==true?'readonly':''}}></textarea>
+            </div>
+            {{#  if(item.comment||item.verify){ }}
+            <div class="layui-form-mid layui-word-aux">{{item.verify?'*':''}}{{item.comment?item.comment:''}}</div>
+            {{#  } }}
+        </div>
+        {{#  } }}
+        {{# }); }}
+        <div class="layui-form-item {{ d.form.showButton==true?"layui-show":"layui-hide"}}">
+            <label for="L_repass" class="layui-form-label autoform-label"></label>
+            <button class="layui-btn" type="submit" lay-submit lay-filter="{{d.form.filter}}Btn">确定</button>
+            <button class="layui-btn" type="reset">重置</button>
+        </div>
+    </form>
+    <style>
+        .autoform-label {
+            {{ d.form.labelcss }}
+        }
+        .autoform-input {
+            {{ d.form.inputcss }}
+        }
+    </style>
+</script>

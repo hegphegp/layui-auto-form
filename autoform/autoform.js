@@ -1,4 +1,4 @@
-﻿/**
+/**
  @Name：自动表单组件
  @Author：Jeff
  @License：LAYUI
@@ -174,7 +174,8 @@ layui.define(['jquery', 'layer', 'form', 'laytpl', 'laydate'], function (exports
             });
 
             //模板渲染
-            $.get("/js/autoform/FormTemplate.html?v=8", function (html) {
+            var basedir = layui.cache.base;
+            $.get(basedir + "/autoform/formTemplate.html?v=1", function (html) {
                 var tt = $(html).filter("#autoFormTemplate").html();
                 laytpl(tt).render(options, function (renderhtml) {
                     //装载模板

@@ -8,20 +8,24 @@ LayUI的自动表单
 
 
 #### 安装教程
+
+```
 layui.config({
     base: '/js/', //拓展模块的根目录
 })
 .extend({
     autoform: '/autoform/autoform'
 });
+```
+
 
 #### 使用说明
+
+```
 <!--表单层-->
 <div id="addeditDiv" class="layui-hide"></div>
 
 layui.use('autoform', function () {
-
-```
     //表单渲染示例
     var formobj = autoform.render({
         elem: '#addeditDiv', //要渲染的层Id
@@ -71,8 +75,6 @@ layui.use('autoform', function () {
         }
     });
 
-```
-
     formobj.submit(fun); //触发提交表单，用于其他地方触发提交，fun方法是提交前方法，fun返回false则禁止提交
     formobj.reset(fun); //触发重置表单，fun方法是重置后方法，用于重置后设置某个控件的默认值
     formobj.formVal(formVals); //设置表单值，formVals是表单的值集合
@@ -81,6 +83,8 @@ layui.use('autoform', function () {
     formobj.openDivMax(title, area, formVal); //与上面的openDiv方法一致，不同的是弹出层会自动最大化
 
 });
+```
+
 
 #### 参与贡献
 

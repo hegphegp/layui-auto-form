@@ -30,7 +30,7 @@ layui.use('autoform', function () {
     var formobj = autoform.render({
         elem: '#addeditDiv', //要渲染的层Id
         form: { id: 'addeditForm', filter: 'addeditForm' }, //id即表单form的Id，filter即lay-filter，filter不填则于id一致
-        //其他默认参数：showButton:false,labelcss:'',inputcss:'', showButton是否显示“确定”、“重置”按钮，labelcss标题列的宽度样式，inputcss表单元素列的宽度样式
+        //其他form默认参数：showButton:false,labelcss:'',inputcss:'', showButton是否显示“确定”、“重置”按钮，labelcss标题列的宽度样式，inputcss表单元素列的宽度样式
         fields: [
             { field: 'Id', title: 'Id', type: 'hide' },
             { field: 'FacCode', title: '厂商编号', type: 'text', comment: '后台自动生成', readonly: true },

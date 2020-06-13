@@ -22,7 +22,7 @@ layui.config({
 
 ```
 <!--表单层-->
-<div id="addeditDiv" class="layui-hide"></div>
+<div id="addeditDiv" class="layui-hide"></div> //为实现弹出层则隐藏“layui-hide”
 
 layui.use('autoform', function () {
     //表单渲染示例

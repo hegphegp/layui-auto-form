@@ -1,7 +1,7 @@
 # layui.autoform
 
 #### 介绍
-LayUI的自动表单
+LayUI的自动表单组件
 
 #### 软件架构
 基于LayUI模块化组件

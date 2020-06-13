@@ -81,7 +81,7 @@ layui.use('autoform', function () {
     formobj.openDiv(title, area, formVal); //把表单已弹出层的方式显示出来，title层标题，area层的宽高，可以不填或设置为null（默认['700px', '700px']），设置为'auto'则高度自动适用，formVal为表单的值，不填或为null，则弹出空表单
     formobj.openDivMax(title, area, formVal); //与上面的openDiv方法一致，不同的是弹出层会自动最大化
 
-     **fields字段参数说明：**  
+    <b>fields字段参数说明：<b/>
     field：为元素名称name的值
     type：控件元素类型有 hide、hr、text、select、checkbox、radio、html、switch、laydate、laytime、laydatetime、layyear、laymonth
     comment：控件元素后面的备注说明

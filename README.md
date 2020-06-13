@@ -81,16 +81,18 @@ layui.use('autoform', function () {
     formobj.openDiv(title, area, formVal); //把表单已弹出层的方式显示出来，title层标题，area层的宽高，可以不填或设置为null（默认['700px', '700px']），设置为'auto'则高度自动适用，formVal为表单的值，不填或为null，则弹出空表单
     formobj.openDivMax(title, area, formVal); //与上面的openDiv方法一致，不同的是弹出层会自动最大化
 
-    <b>fields字段参数说明：<b/>
-    field：为元素名称name的值
-    type：控件元素类型有 hide、hr、text、select、checkbox、radio、html、switch、laydate、laytime、laydatetime、layyear、laymonth
-    comment：控件元素后面的备注说明
-    readonly：是否只读，true\false
-    verify：是否必填，true\false\字符串，如果是字符串则校验规则，跟lay-verify的一致，phone、email、url、number、date、identity
-    option：为select、checkbox、radio元素的名称属性值，如{ "": "", "北京": 0, "上海": 1, "广州": 2 }， "": "" 空值为选择提示
-    range：laydate、laytime等元素是否开启范围选择，
-    skin：checkbox元素的主题类型，不填则为layui样式，primary为原始样式
-    html：为自定义html元素，与type:'html'配合使用
+
+
+>     fields字段参数说明：
+>     field：为元素名称name的值
+>     type：控件元素类型有 hide、hr、text、select、checkbox、radio、html、switch、laydate、laytime、laydatetime、layyear、laymonth
+>     comment：控件元素后面的备注说明
+>     readonly：是否只读，true\false
+>     verify：是否必填，true\false\字符串，如果是字符串则校验规则，跟lay-verify的一致，phone、email、url、number、date、identity
+>     option：为select、checkbox、radio元素的名称属性值，如{ "": "", "北京": 0, "上海": 1, "广州": 2 }， "": "" 空值为选择提示
+>     range：laydate、laytime等元素是否开启范围选择，
+>     skin：checkbox元素的主题类型，不填则为layui样式，primary为原始样式
+>     html：为自定义html元素，与type:'html'配合使用
 });
 ```
 #### 效果图

@@ -20,6 +20,8 @@ layui.config({
 <div id="addeditDiv" class="layui-hide"></div>
 
 layui.use('autoform', function () {
+
+```
     //表单渲染示例
     var formobj = autoform.render({
         elem: '#addeditDiv', //要渲染的层Id
@@ -68,6 +70,8 @@ layui.use('autoform', function () {
             });
         }
     });
+
+```
 
     formobj.submit(fun); //触发提交表单，用于其他地方触发提交，fun方法是提交前方法，fun返回false则禁止提交
     formobj.reset(fun); //触发重置表单，fun方法是重置后方法，用于重置后设置某个控件的默认值

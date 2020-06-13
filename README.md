@@ -84,8 +84,8 @@ layui.use('autoform', function () {
 });
 ```
 #### 效果图
-<img src="https://images.gitee.com/uploads/images/2020/0613/175444_fd4b06c1_727020.png" width="50%" />
-<img src="https://images.gitee.com/uploads/images/2020/0613/175458_40221942_727020.png" width="50%" />
+<img src="https://images.gitee.com/uploads/images/2020/0613/175444_fd4b06c1_727020.png" width="65%" />
+<img src="https://images.gitee.com/uploads/images/2020/0613/175458_40221942_727020.png" width="65%" />
 
 #### 码云特技
 

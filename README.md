@@ -86,6 +86,7 @@ layui.use('autoform', function () {
 #### 效果图
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0613/175444_fd4b06c1_727020.png "效果图1")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0613/175458_40221942_727020.png "效果图2")
+<img src="https://images.gitee.com/uploads/images/2020/0613/175458_40221942_727020.png" width="100" height="100" />
 
 #### 码云特技
 

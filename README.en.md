@@ -1,7 +1,7 @@
 # layui.autoform
 
 #### Description
-LayUI的自动表单
+LayUI的表单组件
 
 #### Software Architecture
 Software architecture description

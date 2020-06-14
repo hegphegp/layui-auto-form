@@ -29,7 +29,7 @@ layui.use('autoform', function () {
     var formobj = autoform.render({
         elem: '#addeditDiv', //要渲染的层Id
         form: { id: 'addeditForm', filter: 'addeditForm' }, //id即表单form的Id，filter即lay-filter，filter不填则于id一致
-        //其他form默认参数：showButton:false,labelcss:'',inputcss:'', showButton是否显示“确定”、“重置”按钮，labelcss标题列的宽度样式，inputcss表单元素列的宽度样式
+        //form其他默认参数：showButton:false,labelcss:'',inputcss:'', showButton是否显示“确定”、“重置”按钮，labelcss标题列的宽度样式，inputcss表单元素列的宽度样式
         fields: [
             { field: 'Id', title: 'Id', type: 'hide' },
             { field: 'FacCode', title: '厂商编号', type: 'text', comment: '后台自动生成', readonly: true },
@@ -53,7 +53,7 @@ layui.use('autoform', function () {
             { field: 'testhtml', title: '测试html', type: 'html', html: '<select name="city" id="city" lay-verify="required"><option value=""><option value="0">北京</option></option></select>' },
         ],
         renderComplete: function () {
-            //表单渲染完成后方法，可以对表单元素重新赋值
+            //表单渲染完成后方法，可以对表单元素设置属性，如通过接口设置下拉框的值
         },
         formSubmit: function (formVal) {
             //表单提交方法，formVal是表单提交的数据
@@ -76,9 +76,9 @@ layui.use('autoform', function () {
 
     formobj.submit(fun); //触发提交表单，用于其他地方触发提交，fun方法是提交前方法，fun返回false则禁止提交
     formobj.reset(fun); //触发重置表单，fun方法是重置后方法，用于重置后设置某个控件的默认值
-    formobj.formVal(formVals); //设置表单值，formVals是表单的值集合
-    formobj.formSubmit(formVals); //重置表单提交方法
-    formobj.openDiv(title, area, formVal); //把表单已弹出层的方式显示出来，title层标题，area层的宽高，可以不填或设置为null（默认['700px', '700px']），设置为'auto'则高度自动适用，formVal为表单的值，不填或为null，则弹出空表单
+    formobj.formVal(formVals); //设置表单值，formVals是表单的值，如{'FacCode':'123','FacName':'test'}
+    formobj.formSubmit(fun(formVal)); //表单提交方法，会覆盖上面render.formSubmit里的方法
+    formobj.openDiv(title, area, formVal); //把表单的弹出层显示出来，title层标题，area层的宽高，可以不填或设置为null（默认['700px', '700px']），设置为'auto'则高度自动适用，formVal为表单的值，不填或为null，则弹出空表单
     formobj.openDivMax(title, area, formVal); //与上面的openDiv方法一致，不同的是弹出层会自动最大化
 
 >   fields字段参数说明：
@@ -88,7 +88,7 @@ layui.use('autoform', function () {
 >   readonly：是否只读，true\false
 >   verify：是否必填，true\false\字符串，如果是字符串则校验规则，跟lay-verify的一致，phone、email、url、number、date、identity
 >   option：为select、checkbox、radio元素的名称属性值，如{ "": "", "北京": 0, "上海": 1, "广州": 2 }， "": "" 空值为选择提示
->   range：laydate、laytime等元素是否开启范围选择，
+>   range：laydate、laytime等元素是否开启范围选择，true\false，true开启
 >   skin：checkbox元素的主题类型，不填则为layui样式，primary为原始样式
 >   html：为自定义html元素，与type:'html'配合使用
 
